@@ -524,6 +524,11 @@ def render_game():
 
         st.markdown("### 🔍 คำใบ้")
 
+        visible_clues = question["clues"][:3]
+
+        if state.hints_used > 0 and len(question["clues"]) >= 4:
+            visible_clues = question["clues"][:4]
+
         for clue in question["clues"]:
 
             st.markdown(
@@ -551,12 +556,6 @@ def render_game():
                     st.warning(
                         f"Hint: {hint}"
                     )
-
-        elif state.hints_used > 0:
-
-            st.warning(
-                f"Hint: {question['hint']}"
-            )
 
         # -------------------------------------------------
         # GUESS
