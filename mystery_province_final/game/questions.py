@@ -85,13 +85,8 @@ def build_question(row, question_id):
     clues = clues[:4]
 
     # Hint
-    if keywords:
-        hint = (
-            "ลองนึกถึงคำสำคัญเกี่ยวกับ "
-            + ", ".join(keywords[:2])
-        )
-    elif geography:
-        hint = f"ลองคิดจากลักษณะภูมิประเทศ เช่น {geography[0]}"
+    if len(clues) >= 4:
+        hint = clues[3]
     else:
         hint = "ลองวิเคราะห์จากคำใบ้ทั้งหมดอีกครั้ง"
 
